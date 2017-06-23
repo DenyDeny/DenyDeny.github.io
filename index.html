@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bookshelf</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <main class="app">
+        <div class="container">
+            <section class="app-name">
+                <h1>Книжная полка</h1>
+                <input class="btn green add-btn" type="button" value="Добавить книгу">
+            </section>
+
+            <section class="books">
+                <ul class="books-list">
+                    <li class="book">
+                        <div class="image">
+                            <img src="http://bit.ly/2sraNc5" alt="">
+                        </div>
+                        <div class="description">
+                            <h2>Большая книга CSS3</h2>
+                            <span class="author">Дэвид Макфарланд</span>
+                            <time>2015г.</time>
+                        </div>
+                        <div class="actions">
+                            <input class="btn edit-btn" type="button" value="Редактировать">
+                            <input class="btn red remove-btn" type="button" value="Удалить">
+                        </div>
+                    </li>
+                    <li class="book">
+                        <div class="image">
+                            <img src="http://bit.ly/2sqN2AY" alt="">
+                        </div>
+                        <div class="description">
+                            <h2>JavaScript. Шаблоны</h2>
+                            <span class="author">Denis</span>
+                            <time>2011г.</time>
+                        </div>
+                        <div class="actions">
+                            <input class="btn edit-btn" type="button" value="Редактировать">
+                            <input class="btn red remove-btn" type="button" value="Удалить">
+                        </div>
+                    </li>
+                    <li class="book">
+                        <div class="image">
+                            <img src="http://bit.ly/2rWd8YX" alt="">
+                        </div>
+                        <div class="description">
+                            <h2>Регулярные выражения</h2>
+                            <span class="author">Майкл Фицджеральд</span>
+                            <time>2017г.</time>
+                        </div>
+                        <div class="actions">
+                            <input class="btn edit-btn" type="button" value="Редактировать">
+                            <input class="btn red remove-btn" type="button" value="Удалить">
+                        </div>
+                        <li class="book">
+                            <div class="image">
+                                <img src="http://bit.ly/2sRitoK" alt="">
+                            </div>
+                            <div class="description">
+                                <h2>ES6 и не только</h2>
+                                <span class="author">Кайл Симпсон</span>
+                                <time>2017г.</time>
+                            </div>
+                            <div class="actions">
+                                <input class="btn edit-btn" type="button" value="Редактировать">
+                                <input class="btn red remove-btn" type="button" value="Удалить">
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <div class="popup-wrapper" style="display: none;">
+            <div class="popup-close">
+              <div class="popup">
+                <div class="popup-inner">
+                  <h2>Добавление книги</h2>
+                  <span class="warning hidden">Необходимо заполнить поле "Наименование"</span>
+                  <label for="book-title">Наименование *</label>
+                  <input id="book-title" type="text" class="control" name="title" autofocus>
+
+                  <label for="book-author">Автор</label>
+                  <input id="book-author" type="text" class="control" name="author">
+
+                  <label for="book-year">Год выпуска<span class="year-validate hidden">ввести меньше 2018</span></label>
+                  <input id="book-year" type="text" class="control" name="year">
+
+                  <label for="book-image">Изображение</label>
+                  <input id="book-image" type="text" class="control" name="image">
+                  <div class="popup-btns">
+                    <button class="green save-btn">Сохранить</button>
+                    <button class="red cancel-btn">Отменить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="libs/jquery-3.2.1.min.js"></script>
+<script src="libs/underscore-min.js"></script>
+
+<script type="text/template" data-template="books">
+    <li class="book">
+        <div class="image">
+            <img id="image-replace" src="'+image+'" alt="">
+        </div>
+        <div class="description">
+            <h2 id="title-replace">'+name+'</h2>
+            <span id="author-replace" class="author">'+author+'</span>
+            <time id="year-replace">'+time+'</time>
+        </div>
+        <div class="actions">
+            <input class="btn edit-btn" type="button" value="Редактировать">
+            <input class="btn red remove-btn" type="button" value="Удалить">
+        </div>
+    </li>;
+</script>
+
+<script src="js/common.js"></script>
+</body>
+</html>
