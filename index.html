@@ -77,51 +77,65 @@
                     </ul>
                 </section>
             </div>
-        </main>
-        <div class="popup-wrapper" style="display: none;">
-            <div class="popup-close">
-              <div class="popup">
+    </main>
+    <!-- Попапа для добавления книги -->
+    <div class="popup-wrapper popup-add" style="display: none;">
+        <div class="popup-close">
+            <div class="popup">
                 <div class="popup-inner">
-                  <h2>Добавление книги</h2>
-                  <span class="warning hidden">Необходимо заполнить поле "Наименование"</span>
-                  <label for="book-title">Наименование *</label>
-                  <input id="book-title" type="text" class="control" name="title" autofocus>
+                    <h2>Добавление книги</h2>
+                    <span class="warning hidden">Необходимо заполнить поле "Наименование"</span>
+                    <label for="book-add-title">Наименование *</label>
+                    <input id="book-add-title" type="text" class="control" name="title" autofocus>
 
-                  <label for="book-author">Автор</label>
-                  <input id="book-author" type="text" class="control" name="author">
+                    <label for="book-add-author">Автор</label>
+                    <input id="book-add-author" type="text" class="control" name="author">
 
-                  <label for="book-year">Год выпуска<span class="year-validate hidden">ввести меньше 2018</span></label>
-                  <input id="book-year" type="text" class="control" name="year">
+                    <label for="book-add-year">Год выпуска<span class="year-validate hidden">ввести меньше 2018</span></label>
+                    <input id="book-add-year" type="text" class="control" name="year">
 
-                  <label for="book-image">Изображение</label>
-                  <input id="book-image" type="text" class="control" name="image">
-                  <div class="popup-btns">
-                    <button class="green save-btn">Сохранить</button>
-                    <button class="red cancel-btn">Отменить</button>
+                    <label for="book-add-image">Изображение</label>
+                    <input id="book-add-image" type="text" class="control" name="image">
+                    <div class="popup-btns">
+                        <button class="green save-btn">Сохранить</button>
+                        <button class="red cancel-btn">Отменить</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- Конец попапа для добавления книги -->
+
+    <!-- Попап для редактирования книги -->
+    <div class="popup-wrapper popup-edit" style="display: none;">
+        <div class="popup-close">
+            <div class="popup">
+                <div class="popup-inner">
+                    <h2>Редактирование книги</h2>
+                    <span class="warning hidden">Необходимо заполнить поле "Наименование"</span>
+                    <label for="book-edit-title">Наименование *</label>
+                    <input id="book-edit-title" type="text" class="control" name="title" autofocus>
+
+                    <label for="book-edit-author">Автор</label>
+                    <input id="book-edit-author" type="text" class="control" name="author">
+
+                    <label for="book-edit-year">Год выпуска<span class="year-validate hidden">ввести меньше 2018</span></label>
+                    <input id="book-edit-year" type="text" class="control" name="year">
+
+                    <label for="book-edit-image">Изображение</label>
+                    <input id="book-edit-image" type="text" class="control" name="image">
+                    <div class="popup-btns">
+                        <button class="green save-btn">Сохранить</button>
+                        <button class="red cancel-btn">Отменить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script src="libs/jquery-3.2.1.min.js"></script>
 <script src="libs/underscore-min.js"></script>
 
-<script type="text/template" data-template="books">
-    <li class="book">
-        <div class="image">
-            <img id="image-replace" src="'+image+'" alt="">
-        </div>
-        <div class="description">
-            <h2 id="title-replace">'+name+'</h2>
-            <span id="author-replace" class="author">'+author+'</span>
-            <time id="year-replace">'+time+'</time>
-        </div>
-        <div class="actions">
-            <input class="btn edit-btn" type="button" value="Редактировать">
-            <input class="btn red remove-btn" type="button" value="Удалить">
-        </div>
-    </li>;
-</script>
 
 <script src="js/common.js"></script>
 </body>

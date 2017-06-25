@@ -18,14 +18,29 @@ $(function() {
             }, 400);
         },
 
-        /* Метод для появления попапа */
-        showPopup: function () {
-            $('.popup-wrapper').fadeIn();
+        /* Метод для записи значений строки книги в попап редактирования */
+        writeEditPopup: function (parent) {
+            document.getElementById("book-edit-title").value = parent.querySelector('.book h2').innerHTML;
+            document.getElementById("book-edit-year").value = parent.querySelector('.book time').innerHTML;
+            document.getElementById("book-edit-author").value = parent.querySelector('.book .author').innerHTML;
+            document.getElementById("book-edit-image").value = parent.querySelector('.book img').getAttribute('src');
+            controller.showEditPopup();
+        },
+
+        /* Метод для отображения попапа редактирования */
+        showEditPopup: function () {
+            $('.popup-edit').fadeIn();
+        },
+
+        /* Метод для отображения попапа добавления */
+        showAddPopup: function () {
+            $('.popup-add').fadeIn();
         },
 
         /* Метод для закрытия попапа */
         closePopup: function () {
-            $('.popup-wrapper').fadeOut();
+            $('.popup-add').fadeOut();
+            $('.popup-edit').fadeOut();
             $('.warning').fadeOut();
             $('.year-validate').fadeOut();
         },
@@ -39,14 +54,16 @@ $(function() {
 
         /* Метод для очистки инпутов попапа после сохранения книги или отмены сохранения */
         clearPopup: function () {
-            document.getElementById("book-title").value = "";
-            document.getElementById("book-author").value = "";
-            document.getElementById("book-year").value = "";
-            document.getElementById("book-image").value = "";
+            document.getElementById("book-add-title").value = "";
+            document.getElementById("book-add-author").value = "";
+            document.getElementById("book-add-year").value = "";
+            document.getElementById("book-add-image").value = "";
             this.closePopup();
         },
 
+        /* Метод для проверки поля год на валидность */
         validateYear: function (bookList) {
+            this.yearField = parseInt(data.controls.year.replace(/\D+/g,""));
             if (this.yearField > 2017) {
                 $('.year-validate').fadeIn();
             } else {
@@ -54,9 +71,8 @@ $(function() {
             }
         },
 
+        /* Метод для проверки поля Наименование на валидность */
         validateTitle: function (bookList) {
-            this.yearField = parseInt(data.controls.year.replace(/\D+/g,""));
-
             if (data.controls.title.length === 0) {
                 document.querySelector('.warning').classList.remove('hidden');
                 $('.warning').fadeIn();
@@ -67,10 +83,10 @@ $(function() {
 
         /* Метод для инициирования свойств объекта data.controls значениями инпутов попапа*/
         initControls: function () {
-            data.controls.title = document.getElementById("book-title").value;
-            data.controls.author = document.getElementById("book-author").value;
-            data.controls.year = document.getElementById("book-year").value;
-            data.controls.image = document.getElementById("book-image").value;
+            data.controls.title = document.getElementById("book-add-title").value;
+            data.controls.author = document.getElementById("book-add-author").value;
+            data.controls.year = document.getElementById("book-add-year").value;
+            data.controls.image = document.getElementById("book-add-image").value;
             this.template();
         },
 
@@ -104,12 +120,12 @@ $(function() {
     view = {
         init: function () {
             this.bookList = document.querySelector('.books-list');
+            var book = document.querySelectorAll('.book');
             this.addButton = document.querySelector('.add-btn');
             this.saveButton = document.querySelector('.save-btn');
-            this.cancelButton = document.querySelector('.cancel-btn');
-            this.bookTemplate = document.querySelector('script[data-template="books');
-            this.closePopup = document.querySelector('.popup-close');
-            this.popup = document.querySelector('.popup');
+            var cancelButton = document.querySelectorAll('.cancel-btn');
+            var closePopup = document.querySelectorAll('.popup-close');
+            var popup = document.querySelectorAll('.popup');
 
             this.bookList.onclick = function (event) {
                 var target = event.target;
@@ -121,7 +137,7 @@ $(function() {
 
             /* Клик по кнопке  кнопке Добавить книгу*/
             this.addButton.onclick = function () {
-                controller.showPopup();
+                controller.showAddPopup();
             };
 
             /* Клик по кнопке сохранения книги */
@@ -130,20 +146,38 @@ $(function() {
             };
 
             /* Клик по кнопке отмены сохранения книги */
-            this.cancelButton.onclick = function () {
-                controller.clearPopup();
-                controller.closePopup();
-            };
+            for (var cancelButtonCouner = 0; cancelButtonCouner < cancelButton.length; cancelButtonCouner++ ) {
+                cancelButton[cancelButtonCouner].onclick = function () {
+                    controller.clearPopup();
+                }
+            }
 
             /* Клик на области вне попапа для его закрытия */
-            this.closePopup.onclick = function (e) {
-              controller.closePopup(e);
-            };
+            for (var closePopupCounter = 0; closePopupCounter < closePopup.length; closePopupCounter++) {
+                closePopup[closePopupCounter].onclick = function () {
+                    controller.closePopup();
+                }
+            }
 
             /* Остановка баблинга */
-            this.popup.onclick = function (e) {
-                e.stopPropagation();
-            };
+            for (var popupCounter = 0; popupCounter < popup.length; popupCounter++) {
+                popup[popupCounter].onclick = function (e) {
+                    e.stopPropagation();
+                }
+            }
+
+            /* Реализация редактирования */
+            for (var bookCounter = 0; bookCounter < book.length; bookCounter++) {
+                book[bookCounter].onclick = function (event) {
+                    var target = event.target;
+                    var parent = target.closest('.book');
+                    if (!target.classList.contains('edit-btn')) {
+                        return;
+                    }
+                    controller.writeEditPopup(parent);
+                }
+            }
+
         },
 
         render: function () {
