@@ -31,6 +31,7 @@ $(function() {
             $('.popup-edit').fadeIn();
         },
 
+        /* В методе значения из попапа подставляются в книгу */
         editBook: function (parent) {
             parent.querySelector('.book h2').innerHTML = document.getElementById("book-edit-title").value;
             parent.querySelector('.book time').innerHTML = document.getElementById("book-edit-year").value;
@@ -57,7 +58,6 @@ $(function() {
             var resultBook = this.bookWrapper;
             bookList.appendChild(resultBook);
             this.clearPopup();
-            view.init();
         },
 
         /* Метод для очистки инпутов попапа после сохранения книги или отмены сохранения */
@@ -78,8 +78,6 @@ $(function() {
                 this.addBook(bookList);
             }
         },
-
-        
 
         /* Метод для проверки поля Наименование на валидность */
         validateTitle: function (bookList) {
@@ -122,6 +120,7 @@ $(function() {
             view.render();
         },
 
+        /* Метод инициализации переменных и установки обработчиков */
         init: function () {
             view.init();
         }
@@ -130,16 +129,31 @@ $(function() {
     view = {
         init: function () {
             var self = this;
-            this.bookList = document.querySelector('.books-list');
-            var book = document.querySelectorAll('.book');
-            this.addButton = document.querySelector('.add-btn');
-            var saveAddButton = document.querySelector('.popup-add .save-btn');
-            self.saveEditButton = document.querySelector('.popup-edit .save-btn');
-            var cancelButton = document.querySelectorAll('.cancel-btn');
-            var closePopup = document.querySelectorAll('.popup-close');
-            var popup = document.querySelectorAll('.popup');
+            this.bookList = document.querySelector('.books-list'); // Список (ul) книг
+            var bookListWrapper = document.querySelector('.books'); // Секция (section.books) внутри которой список (ul)
+            var book = document.querySelectorAll('.book'); // Элементы (li.book) списка (ul)
+            this.addButton = document.querySelector('.add-btn'); // Кнопка "Добавить книгу"
+            var saveAddButton = document.querySelector('.popup-add .save-btn'); // Кнопка "Сохранить" (1)
+            self.saveEditButton = document.querySelector('.popup-edit .save-btn'); // Кнопка "Сохранить" (2)
+            var cancelButton = document.querySelectorAll('.cancel-btn'); // Кнопки "Отмена"
+            var closePopup = document.querySelectorAll('.popup-close'); // Область вне попапа (чтобы закрыть его)
+            var popup = document.querySelectorAll('.popup'); // Сам попап
 
+            /* Вешается обработчик на кнопки "Редактировать" */
+            bookListWrapper.onclick = function (event) {
+                var target = event.target;
+                var parent = target.closest('.book');
+                if (!target.classList.contains('edit-btn')) {
+                    return;
+                }
+                controller.writeEditPopup(parent);
 
+                self.saveEditButton.onclick = function () {
+                    controller.editBook(parent);
+                }
+            };
+
+            /* Вешается обработчик на кнопки "Удалить" */
             this.bookList.onclick = function (event) {
                 var target = event.target;
                 if (!target.classList.contains('remove-btn')) {
@@ -179,21 +193,6 @@ $(function() {
                 }
             }
 
-            /* Реализация редактирования */
-            for (var bookCounter = 0; bookCounter < book.length; bookCounter++) {
-                book[bookCounter].onclick = function (event) {
-                    var target = event.target;
-                    var parent = target.closest('.book');
-                    if (!target.classList.contains('edit-btn')) {
-                        return;
-                    }
-                    controller.writeEditPopup(parent);
-
-                    self.saveEditButton.onclick = function () {
-                        controller.editBook(parent);
-                    }
-                }
-            }
         },
 
         render: function () {
