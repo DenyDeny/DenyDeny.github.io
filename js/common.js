@@ -9,7 +9,6 @@ $(function() {
     };
 
     controller = {
-
         /* Метод для удаления книги */
         removeBook: function (book) {
             book.closest('li').classList.add('transition');
@@ -24,12 +23,20 @@ $(function() {
             document.getElementById("book-edit-year").value = parent.querySelector('.book time').innerHTML;
             document.getElementById("book-edit-author").value = parent.querySelector('.book .author').innerHTML;
             document.getElementById("book-edit-image").value = parent.querySelector('.book img').getAttribute('src');
-            controller.showEditPopup();
+            this.showEditPopup();
         },
 
         /* Метод для отображения попапа редактирования */
         showEditPopup: function () {
             $('.popup-edit').fadeIn();
+        },
+
+        editBook: function (parent) {
+            parent.querySelector('.book h2').innerHTML = document.getElementById("book-edit-title").value;
+            parent.querySelector('.book time').innerHTML = document.getElementById("book-edit-year").value;
+            parent.querySelector('.book .author').innerHTML = document.getElementById("book-edit-author").value;
+            parent.querySelector('.book img').setAttribute('src', document.getElementById("book-edit-image").value);
+            this.closePopup();
         },
 
         /* Метод для отображения попапа добавления */
@@ -47,9 +54,10 @@ $(function() {
 
         /* Метод для добавления книги в список по кнопке Сохранить */
         addBook: function (bookList) {
-            var book = this.div;
-            bookList.appendChild(book);
+            var resultBook = this.bookWrapper;
+            bookList.appendChild(resultBook);
             this.clearPopup();
+            view.init();
         },
 
         /* Метод для очистки инпутов попапа после сохранения книги или отмены сохранения */
@@ -70,6 +78,8 @@ $(function() {
                 this.addBook(bookList);
             }
         },
+
+        
 
         /* Метод для проверки поля Наименование на валидность */
         validateTitle: function (bookList) {
@@ -107,8 +117,8 @@ $(function() {
                 '<input class="btn red remove-btn" type="button" value="Удалить"> ' +
                 '</div> ' +
                 '</li>';
-            this.div = document.createElement('div');
-            this.div.innerHTML = template;
+            this.bookWrapper = document.createElement('div');
+            this.bookWrapper.innerHTML = template;
             view.render();
         },
 
@@ -119,13 +129,16 @@ $(function() {
 
     view = {
         init: function () {
+            var self = this;
             this.bookList = document.querySelector('.books-list');
             var book = document.querySelectorAll('.book');
             this.addButton = document.querySelector('.add-btn');
-            this.saveButton = document.querySelector('.save-btn');
+            var saveAddButton = document.querySelector('.popup-add .save-btn');
+            self.saveEditButton = document.querySelector('.popup-edit .save-btn');
             var cancelButton = document.querySelectorAll('.cancel-btn');
             var closePopup = document.querySelectorAll('.popup-close');
             var popup = document.querySelectorAll('.popup');
+
 
             this.bookList.onclick = function (event) {
                 var target = event.target;
@@ -141,13 +154,13 @@ $(function() {
             };
 
             /* Клик по кнопке сохранения книги */
-            this.saveButton.onclick = function () {
+            saveAddButton.onclick = function () {
               controller.initControls();
             };
 
             /* Клик по кнопке отмены сохранения книги */
-            for (var cancelButtonCouner = 0; cancelButtonCouner < cancelButton.length; cancelButtonCouner++ ) {
-                cancelButton[cancelButtonCouner].onclick = function () {
+            for (var cancelButtonCounter = 0; cancelButtonCounter < cancelButton.length; cancelButtonCounter++ ) {
+                cancelButton[cancelButtonCounter].onclick = function () {
                     controller.clearPopup();
                 }
             }
@@ -175,9 +188,12 @@ $(function() {
                         return;
                     }
                     controller.writeEditPopup(parent);
+
+                    self.saveEditButton.onclick = function () {
+                        controller.editBook(parent);
+                    }
                 }
             }
-
         },
 
         render: function () {
