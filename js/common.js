@@ -138,6 +138,14 @@ $(function() {
             var cancelButton = document.querySelectorAll('.cancel-btn'); // Кнопки "Отмена"
             var closePopup = document.querySelectorAll('.popup-close'); // Область вне попапа (чтобы закрыть его)
             var popup = document.querySelectorAll('.popup'); // Сам попап
+            var yearFields = document.querySelectorAll('.year-control');
+
+            /* Вешается обработчик на поле для ввода года */
+            for (var yearCounter = 0; yearCounter < yearFields.length; yearCounter++) {
+                yearFields[yearCounter].onkeyup = function () {
+                    this.value = this.value.replace (/\D/, '');
+                }
+            }
 
             /* Вешается обработчик на кнопки "Редактировать" */
             bookListWrapper.onclick = function (event) {
