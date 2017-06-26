@@ -190,7 +190,7 @@ $(function() {
             /* Клик на области вне попапа для его закрытия */
             for (var closePopupCounter = 0; closePopupCounter < closePopup.length; closePopupCounter++) {
                 closePopup[closePopupCounter].onclick = function () {
-                    controller.closePopup();
+                    controller.clearPopup();
                 }
             }
 
