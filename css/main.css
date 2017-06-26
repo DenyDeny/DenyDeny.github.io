@@ -204,7 +204,7 @@ main.app {
 
 /* -------- Popup -------- */
 
-.popup-wrapper, .popup-delete {
+.popup-wrapper {
   background: rgba(255, 255, 255, 0.6) none repeat scroll 0 0;
   display: none;
   height: 100%;
@@ -279,6 +279,7 @@ main.app {
     border: 1.1px solid #6A6A6A;
     font-size: 1.8rem;
     margin-bottom: 15px;
+    min-width: 95%;
 }
 
 .popup .control:focus {
@@ -287,9 +288,9 @@ main.app {
 
 /* Поля для ввода года */
 #book-add-year,
-#book-edit-year{
+#book-edit-year {
+    min-width: 20%;
     max-width: 100px;
-    
 }
 
 .popup-btns button {
@@ -391,5 +392,9 @@ main.app {
 
     .popup {
         width: 80%;
+    }
+
+    .popup .control {
+        min-width: 60%;
     }
 }
