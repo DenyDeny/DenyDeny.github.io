@@ -13,7 +13,7 @@ $(function() {
         removeBook: function (book) {
             book.closest('li').classList.add('transition');
             setTimeout(function() {
-                book.closest('li').classList.add('hidden');
+                book.closest('li').remove();
             }, 400);
         },
 
@@ -31,7 +31,7 @@ $(function() {
             $('.popup-edit').fadeIn();
         },
 
-        /* В методе значения из попапа подставляются в книгу */
+        /* В методе значения из попапа редактирования подставляются в книгу */
         editBook: function (parent) {
             parent.querySelector('.book h2').innerHTML = document.getElementById("book-edit-title").value;
             parent.querySelector('.book time').innerHTML = document.getElementById("book-edit-year").value;
