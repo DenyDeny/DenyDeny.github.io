@@ -1,4 +1,4 @@
 # DenyDeny.github.io
-**npm install** - для установки зависимостей
+**npm install** - установка зависимостей
 
-**gulp watch** - запуск сервера
+**gulp watch** - запуск локального сервера
