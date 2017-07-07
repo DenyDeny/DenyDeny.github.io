@@ -1,209 +1,175 @@
-/* Общая стилизация */
+/* General styling */
 html {
-    font-size: 62.5%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
 }
-
-h1, h2 {
-    margin: 0;
+h1,
+h2 {
+  margin: 0;
 }
-
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-/*Конец общей стилизации*/
-
+/*The end of general styling*/
 main.app {
-    max-width: 1080px;
-    margin: 0 auto;
+  max-width: 1080px;
+  margin: 0 auto;
 }
-
 .container {
-    padding: 20px 40px;
+  padding: 20px 40px;
 }
-
-/*Секция app-name*/
+/*Section app-name*/
 .app-name {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
-
 .app-name h1 {
-    font-size: 2.5rem;
-    font-weight: 400;
-    padding-bottom: 10px;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 400;
+  padding-bottom: 10px;
 }
-/*Конец секции app-name*/
-
-/* Стилизация кнопок и их состояний */
+/*The end of section app-name*/
+/* Styling buttons and their states */
 .btn {
-    color: #fff;
-    background-color: #005b96;
-    border: none;
-    padding: 6px 15px;
-    font-size: 1.6rem;
-    outline: none;
-    cursor: pointer;
-    -webkit-border-radius: 4px;
-            border-radius: 4px;
-    -webkit-transition: .6s;
-    -o-transition: .6s;
-    transition: .6s;
+  color: #fff;
+  background-color: #005b96;
+  border: none;
+  padding: 6px 15px;
+  font-size: 1.6rem;
+  outline: none;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
-
 .btn:hover {
-    background-color: #067bc6;
+  background-color: #007ac9;
 }
-
 .btn:active {
-    background-color: #003c66;
+  background-color: #003c63;
 }
-
 .green {
-    background-color: #33CC66;
+  background-color: #33CC66;
 }
-
 .green:hover,
 .green:focus {
-    background-color: #1EE494;
+  background-color: #5cd685;
 }
-
 .green:active {
-    background-color: #006633;
+  background-color: #29a352;
 }
-
 .red {
-    background-color: #BE3144;
+  background-color: #BE3144;
 }
-
 .red:hover,
 .red:focus {
-    background-color: #FF3333;
+  background-color: #d25062;
 }
-
 .red:active {
-    background-color: #660000;
+  background-color: #952735;
 }
-/* Конец стилизации кнопок и их состояний */
-
-/*Секция books*/
-/*Строка таблицы*/
+/* The end of styling buttons and their states */
+/*Section books*/
+/*Styling the book*/
 .book {
-    padding: 10px 20px;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-shadow: 0 4px 13px 1px rgba(0, 0, 0, 0.09);
-            box-shadow: 0 4px 13px 1px rgba(0, 0, 0, 0.09);
-    margin-bottom: 20px;
-    -webkit-transition: all 2s linear;
-    -o-transition: all 2s linear;
-    transition: all 2s linear;
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #333;
+  -webkit-box-shadow: 0 4px 13px 1px rgba(0, 0, 0, 0.09);
+          box-shadow: 0 4px 13px 1px rgba(0, 0, 0, 0.09);
+  background-color: #fff;
+  margin-bottom: 20px;
+  -webkit-transition: all 2s linear;
+  transition: all 2s linear;
 }
-
 .book:hover {
-    -webkit-transition: .6s;
-    -o-transition: .6s;
-    transition: .6s;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
-
 .book .description {
-    margin-right: auto;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: column wrap;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-
-.description h2 {
-    font-size: 1.9rem;
-    font-weight: 400;
-    margin-bottom: 5px;
+.book .description h2 {
+  font-size: 1.9rem;
+  font-weight: 400;
+  margin-bottom: 5px;
 }
-
-.description time, .description .author {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: 300;
-    margin-bottom: 5px;
+.book .description time,
+.book .description .author {
+  display: block;
+  color: #666666;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 5px;
 }
-
-/* Стили для анимации и удаления книги */
+/* Styles for animation and removing book */
 .hidden {
-    display: none !important;  /* Чтобы на маленьких экранах перебить display: block */
+  display: none !important;
+  /* That on small screens interrupt display: block */
 }
-
 .hidden-year {
-    display: none;
+  display: none;
 }
-
 .transition {
-    opacity: 0;
+  opacity: 0;
 }
-
-/*Контейнер картинки*/
+/* Container picture */
 .image {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 200px;
-        -ms-flex: 0 1 200px;
-            flex: 0 1 200px;
-    margin-right: 50px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 200px;
+      -ms-flex: 0 1 200px;
+          flex: 0 1 200px;
+  margin-right: 50px;
 }
-
 .image img {
-    max-width: 80%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+  max-width: 80%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-
-/* Кнопок "Редактировать" и "Удалить" */
+/* Buttons "Редактировать" и "Удалить" */
 .actions {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: column wrap;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-
 .actions .btn:nth-of-type(1) {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
-/* -------- Popup -------- */
-
+/* Popup */
 .popup-wrapper {
   background: rgba(255, 255, 255, 0.6) none repeat scroll 0 0;
   display: none;
@@ -214,187 +180,158 @@ main.app {
   width: 100%;
   z-index: 1000;
   -webkit-transition: 1s;
-  -o-transition: 1s;
   transition: 1s;
 }
-
 .popup-close {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1001;
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
 }
-
 .popup {
-    background: white none repeat scroll 0 0;
-    left: 50%;
-    margin: 0 auto;
-    padding: 25px 30px;
-    position: absolute;
-    top: 15%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    z-index: 1002;
-    border: 5px solid #FF3300;
-    width: 50%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+  background: #fff none repeat scroll 0 0;
+  left: 50%;
+  margin: 0 auto;
+  padding: 25px 30px;
+  position: absolute;
+  top: 15%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1002;
+  border: 5px solid #FF3300;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-
-.popup-inner {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: column wrap;
-        -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
-}
-
-.popup-inner h2 {
-    margin: 0;
-    color: #333333;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
 .popup label {
-    font-size: 1.6rem;
-    margin-bottom:  4px;
-    display: inline;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+  display: inline;
 }
-
 .popup .control {
-    padding: .4rem 1.5rem;
-    outline: none;
-    border: 1.1px solid #6A6A6A;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    min-width: 95%;
+  padding: .4rem 1.5rem;
+  outline: none;
+  border: 1.1px solid #6A6A6A;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  min-width: 95%;
 }
-
 .popup .control:focus {
-    border: 1.1px solid #29B0D9;
+  border: 1.1px solid #29B0D9;
 }
-
-/* Поля для ввода года */
+.popup-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+.popup-inner h2 {
+  margin: 0;
+  color: #333333;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+/* Fields for year entry */
 #book-add-year,
 #book-edit-year {
-    min-width: 20%;
-    max-width: 100px;
+  min-width: 20%;
+  max-width: 100px;
 }
-
 .popup-btns button {
-    padding: 15px 30px;
-    color: white;
-    border: none;
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 300;
-    margin: 20px 0 0;
-    outline: none;
-    outline-width: 0;
-    outline-offset: 0;
-    cursor: pointer;
+  padding: 15px 30px;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 300;
+  margin: 20px 0 0;
+  outline: none;
+  outline-width: 0;
+  outline-offset: 0;
+  cursor: pointer;
 }
-
 .popup-btns button:nth-of-type(1) {
-    margin-right: 10px;
+  margin-right: 10px;
 }
-
-/* Стили для подсказок */
+/* Styles for hints */
 .warning {
-    font-size: 1.4rem;
-    color: red;
+  font-size: 1.4rem;
+  color: #FF0033;
 }
-
 .year-validate {
-    margin-left: 10px;
-    font-size: 1.4rem;
-    color: red;
+  margin-left: 10px;
+  font-size: 1.4rem;
+  color: #FF0033;
 }
-
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-    .image {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1 1 250px;
-            -ms-flex: 1 1 250px;
-                flex: 1 1 250px;
-        margin-right: 30px;
-    }
-    .description {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1 1 400px;
-            -ms-flex: 1 1 400px;
-                flex: 1 1 400px;
-    }
-
-    .description h2 {
-        font-size: 1.3rem;
-    }
-    .btn {
-        padding: 4px 15px;
-        font-size: 1.2rem;
-    }
-
-    .popup-btns {
-        display: block;
-        -webkit-transition: .6s;
-        -o-transition: .6s;
-        transition: .6s;
-    }
-
-    .popup-btns button {
-        margin-top: 5px;
-        width: 100%;
-        padding: 10px 20px;
-        -webkit-transition: .6s;
-        -o-transition: .6s;
-        transition: .6s;
-    }
-
-    .popup-inner h2 {
-        font-size: 2rem;
-    }
-
-    .popup .control {
-        font-size: 1.5rem;
-    }
-
-    .popup {
-        width: 70%;
-    }
+@media only screen and (max-width: 768px) {
+  .image {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 250px;
+        -ms-flex: 1 1 250px;
+            flex: 1 1 250px;
+    margin-right: 30px;
+  }
+  .description {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 400px;
+        -ms-flex: 1 1 400px;
+            flex: 1 1 400px;
+  }
+  .description h2 {
+    font-size: 1.3rem;
+  }
+  .btn {
+    padding: 4px 15px;
+    font-size: 1.2rem;
+  }
+  .popup-btns {
+    display: block;
+    -webkit-transition: .6s;
+    transition: .6s;
+  }
+  .popup-btns button {
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px 20px;
+    -webkit-transition: .6s;
+    transition: .6s;
+  }
+  .popup-inner h2 {
+    font-size: 2rem;
+  }
+  .popup {
+    width: 70%;
+  }
+  .popup .control {
+    font-size: 1.5rem;
+  }
 }
-
 /* Custom, iPhone Retina */
-@media only screen and (max-width : 480px) {
-    .book {
-        display: block;
-        text-align: center;
-    }
-    .btn {
-        padding: 5px;
-    }
-
-    .image {
-        margin-right: 0;
-    }
-
-    .popup {
-        width: 80%;
-    }
-
-    .popup .control {
-        min-width: 60%;
-    }
+@media only screen and (max-width: 480px) {
+  .book {
+    display: block;
+    text-align: center;
+  }
+  .btn {
+    padding: 5px;
+  }
+  .image {
+    margin-right: 0;
+  }
+  .popup {
+    width: 80%;
+  }
+  .popup .control {
+    min-width: 60%;
+  }
 }
