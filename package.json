@@ -12,9 +12,6 @@
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-less": "^3.3.2",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-uglifyjs": "^0.6.2",
-    "gulp-concat": "^2.6.1",
     "gulp-util": "^3.0.8",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-functions": "^1.0.0"
