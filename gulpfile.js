@@ -1,12 +1,9 @@
 var gulp       = require('gulp'),
   	less         = require('gulp-less'),
-	LessAutoprefix = require('less-plugin-autoprefix'),
-	autoprefix = new LessAutoprefix({ browsers: ['last 15 versions'] }),
-	gutil 		 = require('gulp-util'), 
-	browserSync  = require('browser-sync'),
-	concat       = require('gulp-concat'),
-	uglify       = require('gulp-uglifyjs'),
-	cssnano      = require('gulp-cssnano');
+		LessAutoprefix = require('less-plugin-autoprefix'),
+		autoprefix = new LessAutoprefix({ browsers: ['last 15 versions'] }),
+		gutil 		 = require('gulp-util'), 
+		browserSync  = require('browser-sync');
 
 gulp.task('less', function() {
   return gulp.src('app/less/**/*.less')
