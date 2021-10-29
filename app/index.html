@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <script src="metrics/send.js"></script>
+    <script>
+        let counter = new Counter();
+
+        counter.init('D8F28E50-3339-11EC-9EDF-9F93090795B1', String(Math.random()).substr(2, 12), 'send test');
+        counter.setAdditionalParams({
+            env: 'production',
+            platform: 'touch'
+        });
+
+        counter.send('connect', performance.timing.connectEnd - performance.timing.connectStart);
+        counter.send('ttfb', performance.timing.responseEnd - performance.timing.requestStart);
+    </script>
     <main class="app">
         <div class="container">
             <section class="app-name">
